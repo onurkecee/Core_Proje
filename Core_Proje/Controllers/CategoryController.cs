@@ -8,18 +8,12 @@ using System.Threading.Tasks;
 
 namespace Core_Proje.Controllers
 {
-    public class BlogController : Controller
+    public class CategoryController : Controller
     {
-        BlogManager bm = new BlogManager(new EfBlogRepository());
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         public IActionResult Index()
         {
-            var values = bm.GetBlogListWithCategory();
-            return View(values);
-        }
-        public IActionResult BlogReadAll(int id)
-        {
-            ViewBag.i = id;
-            var values = bm.GetBlogByID(id);
+            var values = cm.GetList();
             return View(values);
         }
     }
