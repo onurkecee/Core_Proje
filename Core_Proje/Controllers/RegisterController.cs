@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +11,8 @@ namespace Core_Proje.Controllers
 {
     public class RegisterController : Controller
     {
+        WriterManager wm = new WriterManager(new EfWriterRepository());
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -15,9 +20,12 @@ namespace Core_Proje.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int id)
+        public IActionResult Index(Writer p)
         {
-            return View(id);
+            p.WriterStatus = true;
+            p.WriterAbout = "Deneme Yazısı";
+            wm.WriterAdd(p);
+            return RedirectToAction("Index", "Blog");
         }
     }
 }
