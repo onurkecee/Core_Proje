@@ -73,19 +73,13 @@
                         <div class="tech-btm">
                             <img src="~/CoreBlogTema/web/images/banner1.jpg" class="img-fluid" alt="">
                         </div>
-                        <div class="tech-btm">
-                            <h4>Lütfen Üye Olunuz.</h4>
-                            <p>Bültenimize Abone Olun. </p>
-                            <form action="#" method="post">
-                                <input type="email" placeholder="Email" required="">
-                                <input type="submit" value="Abone Ol">
-                            </form>
 
-                        </div>
+                        @await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml")
+
                         @await Component.InvokeAsync("CategoryList")
-                        
-                        @await Component.InvokeAsync("WriterLastBlog") 
-                        
+
+                        @await Component.InvokeAsync("WriterLastBlog")
+
                         <div class="single-gd tech-btm">
                             <h4>En Son Makale</h4>
                             <div class="blog-grids">
