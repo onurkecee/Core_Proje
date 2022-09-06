@@ -17,7 +17,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.WriterName).MaximumLength(30).WithMessage("Yazar Adı En Fazla 30 Karakterden Oluşturulmalıdır.");
 
             RuleFor(x => x.WriterMail).NotEmpty().WithMessage("Bu Alan Boş Geçilemez");
-            RuleFor(x => x.WriterMail).Matches(@"[@,.]").WithMessage("Mail Adresi @ içermelidir.");
+            RuleFor(x => x.WriterMail).EmailAddress().WithMessage("Lütfen Geçerli Bir E-Posta Giriniz.");
 
             RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Lütfen Şifreyi Giriniz");
             RuleFor(x => x.WriterPassword).MinimumLength(3).WithMessage("Şifre En Az 3 Karakterden Oluşturulmalıdır.");
