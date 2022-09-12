@@ -26,7 +26,7 @@ namespace Core_Proje
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            // services.AddControllersWithViews();
 
             services.AddControllersWithViews();
             services.AddMvc(config =>
@@ -44,6 +44,10 @@ namespace Core_Proje
                 {
                     x.LoginPath = "/Login/Index";
                 });
+
+            services.AddMvc()
+             .AddSessionStateTempDataProvider();
+            services.AddSession();
 
         }
 

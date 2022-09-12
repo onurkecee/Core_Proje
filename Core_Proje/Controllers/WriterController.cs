@@ -22,5 +22,21 @@ namespace Core_Proje.Controllers
         {
             return View();
         }
+
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public PartialViewResult WriterNavbarPartial()
+        {
+            return PartialView();
+        }
+        public PartialViewResult WriterFooterPartial()
+        {
+            return PartialView();
+        }
+
     }
 }
